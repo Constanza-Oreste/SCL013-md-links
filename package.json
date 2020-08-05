@@ -2,6 +2,7 @@
   "name": "md-links",
   "version": "0.1.0",
   "dependencies": {
+    "node-fetch": "^2.6.0",
     "url-exists": "^1.0.3"
   }
 }
