@@ -5,17 +5,10 @@ const process = require('process');
 const chalk = require('chalk'); // da colores 
 const { argv } = require('process');
 const fetch=require('node-fetch');
-
 let path = process.argv[2]
 let option = process.argv[3]
 path = pathN.resolve(path);
 
-/*let linksResponse=fetch('https://www.google.com');
-linksResponse.then((res)=>{
-  return res.json();
-}).then((json)=>{
-  console.log(json);
-})*/
 let stats = false;
 let validate = false;
 if (process.argv.includes('--stats' && '--validate')) {
@@ -84,3 +77,8 @@ ${chalk.cyan("path :"+element.path)}
         })
     }
     getLinks(path)
+
+
+
+
+
