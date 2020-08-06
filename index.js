@@ -1,66 +1,3 @@
-/*module.exports = () => {
-}; */
-/*const fs = require('fs');
-//const path=require('path');
-const path = process.argv[2]; //toma el nombre del archivo
- console.log(process.argv[0], "esta funcionando el 0");
- console.log(process.argv[1], "funciona el 1");
- console.log(process.argv[2], "ARCHIVO MD NO ENCONTRADO");
- fs.readFile(path,'utf8', function (err, data) {
-  console.log("leyendo archivo");
-if(err){
-  console.log(`Error ${err}`);
-}else {
-  console.log(data.trim().split('\n').filter(word => word.includes('https://')));
-}
-});
-*/
-/*fs.readdir( __dirname, (err, files) => { 
-  if (err) 
-    console.log(err); 
-  else { 
-    console.log("\Filenames with the .md extension:"); 
-    files.forEach(file => { 
-      if (path.extname(file) == ".md") 
-        console.log(file); 
-    }) 
-  } 
-})*/
-/*fs.readFile('README.md', 'utf8', function(err, data){ 
-  // Display the file content 
-    console.log(data); 
-}); */
-// Function to get current filenames 
-// in directory with specific extension 
-/*fs.readdir(path, (err, files) => { 
-  if (err) 
-    console.log(err); 
-  else { 
-    console.log("\Filenames with the .md extension:"); 
-    files.forEach(file => { 
-      if (path.extname(file) == ".md") 
-        console.log(file); 
-    }) 
-  } 
-}) */
- /*fs.readdir(path, (err,files) => {
-     if(err){
-         console.log(err);
-     }else{
-         console.log("\Filenames with the .md extension found:");
-         files.forEach(file=>{  
-            if (path.extname(file) == ".md")
-            console.log(file);
-         })
-     }
- })*/
-/*const path = process.argv[2];
-fs.readdir(path, function(err, items) {
-    console.log(items);
-    for (var i=0; i<items.length; i++) {
-        console.log(items[i]);
-    }
-});*/ 
 const fs = require ('fs');  //ve los archivos
 const Marked = require ('marked'); // transforma markdown a HTML
 const pathN = require('path')  // ve las rutas 
@@ -73,12 +10,12 @@ let path = process.argv[2]
 let option = process.argv[3]
 path = pathN.resolve(path);
 
-let linksResponse=fetch('https://www.google.cl');
+/*let linksResponse=fetch('https://www.google.com');
 linksResponse.then((res)=>{
   return res.json();
 }).then((json)=>{
   console.log(json);
-})
+})*/
 let stats = false;
 let validate = false;
 if (process.argv.includes('--stats' && '--validate')) {
@@ -89,21 +26,6 @@ if (process.argv.includes('--stats' && '--validate')) {
 } else if(process.argv.includes('--validate')){
   validate = true;
 } 
-//console.log(process.argv.includes('--stats'));
-//console.log(process.argv.includes('--validate'));
-/*switch (validate, stats) {
-  case validate:
-    console.log("VALIDATE ES VERDADERO");
-    break;
-  case stats:
-    console.log("STATS ES VERDADERO");
-    break;
-    case "stats" = true && "validate" == true:
-    console.log("STATS Y VALIDATE SON VERDADEROS");
-    break;
-  default:
-    console.log("AY! no lo encuento aiudaaaa")
-}*/
 if(stats == true && validate == true) {
   console.log("AMBOS SON VERDADEROS, I DONT NEED HELP XD");
 } else if (stats == true) {
@@ -150,7 +72,7 @@ const getLinks = (path) => {
         Marked(res,{renderer:renderer})
         resolve(links)
         links = filterLinks(links);
-       links.map(element =>{console.log("hola"`
+       links.map(element =>{console.log(`
 ${chalk.yellow("href: "+element.href)}
 ${chalk.green("text :"+element.text)}
 ${chalk.cyan("path :"+element.path)}
